@@ -31,7 +31,7 @@ The **OpenShift Client Jenkins Plugin** plugin adds steps that directly interact
 
 ### Install the plugin
 
-Install the **OpenShift Client Jenkins Plugin** to your Jenkins master.
+Install the **OpenShift Client Jenkins Plugin** to your Jenkins main.
 
 1. Search for `openshift-client`.
 

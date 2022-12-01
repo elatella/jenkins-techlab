@@ -49,7 +49,7 @@ triggers {
 
 The ``H`` in a cron expression stands for hash (of the job name) and is used to prevent load spikes on Jenkins by distributing job triggering evenly over the configured range.
 ``@midnight`` also makes use of hashing and actually means some time between 12:00 AM and 2:59 AM. The exact times your job was triggered last and will be triggered next
-are shown under "View Configuration."  
+are shown under "View Configuration."
 For more info regarding Jenkins cron expressions see <http://www.scmgalaxy.com/tutorials/setting-up-the-cron-jobs-in-jenkins-using-build-periodically-scheduling-the-jenins-job>.
 
 

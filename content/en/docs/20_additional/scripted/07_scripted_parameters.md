@@ -28,4 +28,4 @@ Parameter types are declared through the same helper methods as in declarative p
 Use the snippet generator for the ``properties`` step, option "This build is parametrized" to see
 all available types.
 
-**Note:** Use the "Build with Parameters" action on Jenkins master and change the greetings value. The build log output will show the changed greeting.
+**Note:** Use the "Build with Parameters" action on Jenkins main and change the greetings value. The build log output will show the changed greeting.

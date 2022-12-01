@@ -29,7 +29,7 @@ node {
 }
 ```
 
-**Note:** Check the build log output on the Jenkins master.
+**Note:** Check the build log output on the Jenkins main.
 
 
 ## Task {{% param sectionnumber %}}.2: Using Environment Variables or Parameters within a string in a Pipeline

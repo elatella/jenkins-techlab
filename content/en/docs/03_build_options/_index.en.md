@@ -56,4 +56,4 @@ When the job `lab-3.1` is missing, you can click on `Scan Multibranch Pipeline N
 
 View the configuration to check, if the settings of the Jenkinsfile are configured.
 
-> **Note:** The timeout option isn't shown in the configuration on the Jenkins master
+> **Note:** The timeout option isn't shown in the configuration on the Jenkins main

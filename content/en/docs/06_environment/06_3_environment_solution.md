@@ -38,7 +38,7 @@ pipeline {
 {{< / highlight >}}
 ```
 
-**Note:** Check the build log output on the Jenkins master.
+**Note:** Check the build log output on the Jenkins main.
 
 
 ## Extended version of Lab 6.4: Environment (Scripted Syntax)
@@ -68,7 +68,7 @@ timestamps() {
 {{< / highlight >}}
 ```
 
-**Note:** Check the build log output on the Jenkins master.
+**Note:** Check the build log output on the Jenkins main.
 
 ---
 

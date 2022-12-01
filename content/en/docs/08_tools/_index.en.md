@@ -5,8 +5,8 @@ sectionnumber: 8
 ---
 
 Jobs usually require specific versions of build tools for build automation, compilation, testing etc.
-As soon as you have more than a handful number of tools and versions it becomes impractical to install every version of every tool on all slaves.
-That's why Jenkins provides a mechanism to provide the necessary tools for a build on the slaves it runs on.
+As soon as you have more than a handful number of tools and versions it becomes impractical to install every version of every tool on all workers.
+That's why Jenkins provides a mechanism to provide the necessary tools for a build on the workers it runs on.
 
 This lab shows how jobs can declare the tools they need.
 
@@ -97,7 +97,7 @@ pipeline {
 
 Inside the `tool{}` directive we define which tools are needed and in what version. The installed tools will be available because their bin directories are added to the ``PATH`` environment variable.
 
-The configured tools are downloaded when the job runs, directly onto the slaves it runs on.
+The configured tools are downloaded when the job runs, directly onto the workers it runs on.
 Note that tool installers are run for every build and therefore have to be efficient in case the tools are already installed.
 
 

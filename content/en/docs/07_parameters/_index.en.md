@@ -49,7 +49,7 @@ You can also use the snippet generator, like described in the next lab, to see a
 
 ### Use parameters
 
-Go to the newly created pipeline for the new branch on Jenkins master.
+Go to the newly created pipeline for the new branch on Jenkins main.
 
 The first stage of the pipeline has to be run successfully such that the parameter is configured in the job.
 Then you can use the "Build with Parameters" action.

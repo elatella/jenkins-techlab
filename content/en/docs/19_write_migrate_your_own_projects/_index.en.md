@@ -15,6 +15,6 @@ Keep the following principles in mind, while doing that:
 * keep even the configuration of your pipelines (triggers, logrotation, ...) under version control in your pipeline scripts
 * use the declarative pipelines
 * extract functionality in shared libraries for reuse
-* keep the jenkins slaves stateless
+* keep the jenkins workers stateless
 * use tools to build your software
 * have fun!

@@ -53,7 +53,7 @@ The ``PATH+<IDENTIFIER>`` syntax specifies that the given value should be prepen
 
 ### Check build log output
 
-Go to the newly created pipeline for the new branch on Jenkins master.
+Go to the newly created pipeline for the new branch on Jenkins main.
 
 Check the build log (Console Output) of the first run of this pipeline.
 Does the output meet your expectations?
@@ -87,7 +87,7 @@ timestamps() {
 
 ### Check build log
 
-Go to the newly created pipeline for the new branch on Jenkins master.
+Go to the newly created pipeline for the new branch on Jenkins main.
 
 Check the build log (Console Output) of the first run of this pipeline.
 Is it identical to {{% param sectionnumber %}}.2?

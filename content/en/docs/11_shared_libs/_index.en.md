@@ -17,7 +17,7 @@ The following code provides a custom step named ``notifyPuzzleChat``. Before we 
 the shared library is has to be registered with Jenkins:
 
 1. Create a new GitHub repository with a suitable name, e.g. ``jenkins-techlab-exercise-library``.
-1. Create a file named ``vars/notifyPuzzleChat.groovy`` with the following content in the ``master`` branch.
+1. Create a file named ``vars/notifyPuzzleChat.groovy`` with the following content in the ``main`` branch.
 
     ```groovy
     def call(String channel) {
@@ -35,7 +35,7 @@ the shared library is has to be registered with Jenkins:
 1. Go to your [multibranch job folder](http://localhost:8080/job/techlab/)
 1. Press **configure**.
 1. **Add** a new pipeline library
-1. Set the "Name" to ``jenkins-techlab-exercise-library`` and "Default version" to ``master``.
+1. Set the "Name" to ``jenkins-techlab-exercise-library`` and "Default version" to ``main``.
 1. Uncheck `Include @Library changes in job recent changes`
    * This prevents triggering of the job by changes in the library.
 1. Select the "Retrieval method" "Modern SCM"
@@ -119,7 +119,7 @@ Simplify our scripted pipeline from the last lab analogously.
 
 In this lab we used folder-level shared libraries to avoid conflicts between
 techlab participants. But there are also global, automatic and dynamically loaded
-shared libraries.  
+shared libraries.
 Furthermore providing custom steps is just one of several capabilities of shared libraries.
 Study the section covering shared libraries in the Jenkins book to learn more
 about the different types and capabilities of shared libraries:
