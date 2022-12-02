@@ -136,7 +136,7 @@ pipeline {
 
 ### Check build log output
 
-Go to the newly created pipeline for the new branch on Jenkins main.
+Go to the newly created pipeline for the new branch on Jenkins controller.
 
 Check the build log (Console Output) of the first run of this pipeline.
 Does the output meet your expectations?
@@ -167,7 +167,7 @@ pipeline {
 
 ### Check build log for parameters
 
-Go to the newly created pipeline for the new branch on Jenkins main.
+Go to the newly created pipeline for the new branch on Jenkins controller.
 
 Check the build log (Console Output) of the first run of this pipeline.
 Are the variables replaced by parameter and environment variables?
@@ -237,7 +237,7 @@ pipeline {
 
 ### Check build log
 
-Go to the newly created pipeline for the new branch on Jenkins main.
+Go to the newly created pipeline for the new branch on Jenkins controller.
 
 Check the build log (Console Output) of the first run of this pipeline.
 Has the echo shell command run without errors?

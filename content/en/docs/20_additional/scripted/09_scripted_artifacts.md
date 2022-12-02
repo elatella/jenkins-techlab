@@ -43,4 +43,4 @@ which generate JUnit test reports, e.g. Selenium or SoapUI.
 These examples use the recommended options for Maven in pipeline jobs.
 See <https://jenkins.io/doc/pipeline/examples/#maven-and-jdk-specific-version> for details.
 
-**Note:** Check the pipeline screen and build log output on the Jenkins main. The build has also an additional "Test Result" link.
+**Note:** Check the pipeline screen and build log output on the Jenkins controller. The build has also an additional "Test Result" link.

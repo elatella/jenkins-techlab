@@ -4,7 +4,7 @@ weight: 12
 sectionnumber: 12
 ---
 
-Build jobs often need credentials for accessing various resources like source code and artifact repositories, quality control systems, application servers or platforms and so on. Configuring all necessary credentials on all Jenkins workers is both impractical and insecure.
+Build jobs often need credentials for accessing various resources like source code and artifact repositories, quality control systems, application servers or platforms and so on. Configuring all necessary credentials on all Jenkins agents is both impractical and insecure.
 
 So Jenkins provides a mechanism to manage credentials and make them available to jobs who require them, much like it does with build tools. This mechanism is extensible and supports various types of credentials like username/password, token, ssh key, secret file etc.
 

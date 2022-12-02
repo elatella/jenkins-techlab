@@ -25,12 +25,12 @@ Following tools and infrastructure is needed for this lab.
 The prepared docker-compose file defines following container to be started and connected:
 
 
-* Jenkins main: jenkins
-  * main server holding configuration and state
-* Jenkins worker: jenkins_worker
-  * worker to execute jobs
-* Jenkins worker with Docker daemon: docker
-  * worker to execute jobs running inside container
+* Jenkins controller: jenkins
+  * controller server holding configuration and state
+* Jenkins agent: jenkins_agent
+  * agent to execute jobs
+* Jenkins agent with Docker daemon: docker
+  * agent to execute jobs running inside container
 * Rocket.Chat: rocketchat
   * chat to receive job state messages
 * Rocket.Chat db: mongo
@@ -57,13 +57,13 @@ The lab infrastructure is defined by an [docker-compose](https://docs.docker.com
   ```
 
 1. Run all following commands from the root folder of the `jenkins-techlab` git repository.
-1. **On first launch** Create ssh keys for main and worker:
+1. **On first launch** Create ssh keys for controller and agent:
 
   ```s
   source local_env/create-ssh-keys.sh
   ```
 
-  > This creates two files, `local_env/agent/env_file` and `local_env/main/agent_connection_key`
+  > This creates two files, `local_env/agent/env_file` and `local_env/controller/agent_connection_key`
 
 1. Start with docker-compose. Depending on your docker installation you may need to run this with `sudo`:
 
@@ -160,21 +160,21 @@ How to remove all infrastructure to start from scratch.
    docker volume ls
    ```
 
-   The listed volumes should not start with `local_env_`. If you find such volumes, delete it manually (example for local_env_jenkins_main: `docker volume rm local_env_jenkins_main`).
+   The listed volumes should not start with `local_env_`. If you find such volumes, delete it manually (example for local_env_jenkins_controller: `docker volume rm local_env_jenkins_controller`).
 
 1. Remove ssh key files:
 
    ```s
    rm local_env/agent/env_file
-   rm local_env/main/agent_connection_key
+   rm local_env/controller/agent_connection_key
    ```
 
 <!--
 
 ## Hosted Lab Setup
 
-The techlab setup involves starting a Jenkins worker on your notebook and connecting it
-to a Jenkins main running on an OpenShift 3 environment. An OpenShift client is needed
+The techlab setup involves starting a Jenkins agent on your notebook and connecting it
+to a Jenkins controller running on an OpenShift 3 environment. An OpenShift client is needed
 to establish the connection.
 
 **Note** Lab 1.2 and 1.3 are used for [Lab 8](08_tools.md) and following.
@@ -201,7 +201,7 @@ export TLPASS=MY_PASSWORD
   oc login https://openshift.puzzle.ch -u ${TLUSER} -p "${TLPASS}"
   ```
 
-1. Forward the JNLP port required for Jenkins main <-> worker communication
+1. Forward the JNLP port required for Jenkins controller <-> agent communication
 
   ```s
   oc project pitc-jenkins-techlab
@@ -212,15 +212,15 @@ The ``while`` loop  is required because currently port-forward connections time 
 Press ``CTRL-C`` ``CTRL-C`` to stop.
 
 
-### Task {{% param sectionnumber %}}.3: Jenkins worker
+### Task {{% param sectionnumber %}}.3: Jenkins agent
 
-There are two ways to deploy the Jenkins worker:
+There are two ways to deploy the Jenkins agent:
 
 
 #### with Docker
 
 ```s
-docker run --net=host csanchez/jenkins-swarm-worker -main https://jenkins-techlab.ose3-lab.puzzle.ch/ -disableSslVerification -tunnel localhost:50000 -executors 2 -name ${TLUSER} -labels ${TLUSER} -username ${TLUSER} -password "${TLPASS}"
+docker run --net=host csanchez/jenkins-swarm-agent -controller https://jenkins-techlab.ose3-lab.puzzle.ch/ -disableSslVerification -tunnel localhost:50000 -executors 2 -name ${TLUSER} -labels ${TLUSER} -username ${TLUSER} -password "${TLPASS}"
 ```
 
 
@@ -229,7 +229,7 @@ docker run --net=host csanchez/jenkins-swarm-worker -main https://jenkins-techla
 1. Create a dedicated, unprivileged user:
 
   ```s
-  sudo useradd jenkins-worker
+  sudo useradd jenkins-agent
   ```
 
 1. Download Jenkins swarm client 3.4 into a location accessible by the new user:
@@ -238,19 +238,19 @@ docker run --net=host csanchez/jenkins-swarm-worker -main https://jenkins-techla
   curl -O https://repo.jenkins-ci.org/releases/org/jenkins-ci/plugins/swarm-client/3.4/swarm-client-3.4.jar
   ```
 
-1. Start Jenkins worker with new user:
+1. Start Jenkins agent with new user:
 
   ```s
-  sudo -u jenkins-worker -i java -jar swarm-client-3.4.jar -main https://jenkins-techlab.ose3-lab.puzzle.ch/ -disableSslVerification -tunnel localhost:50000 -executors 2 -name ${TLUSER} -labels ${TLUSER} -username ${TLUSER} -password "${TLPASS}"
+  sudo -u jenkins-agent -i java -jar swarm-client-3.4.jar -controller https://jenkins-techlab.ose3-lab.puzzle.ch/ -disableSslVerification -tunnel localhost:50000 -executors 2 -name ${TLUSER} -labels ${TLUSER} -username ${TLUSER} -password "${TLPASS}"
   ```
 
-**Warning:** Running the Jenkins worker directly on your machine with your default user
+**Warning:** Running the Jenkins agent directly on your machine with your default user
 will give techlab participants access to all your files.
 
 
 ### Task {{% param sectionnumber %}}.4: Jenkins Folder
 
-1. Login to the techlab [jenkins main](https://jenkins-techlab.ose3-lab.puzzle.ch/) with your techlab account.
+1. Login to the techlab [jenkins controller](https://jenkins-techlab.ose3-lab.puzzle.ch/) with your techlab account.
 1. Create a folder for your techlab projects by clicking "New Item" -> "Folder". Use your username
 as the folder name. Click **Ok** and then **Save** on the following screen.
 

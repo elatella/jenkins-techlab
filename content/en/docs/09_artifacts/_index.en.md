@@ -4,7 +4,7 @@ weight: 9
 sectionnumber: 9
 ---
 
-Jenkins workers are to be considered stateless, and depending on the setup, they really are. E.g. when using containerized workers.
+Jenkins agents are to be considered stateless, and depending on the setup, they really are. E.g. when using containerized agents.
 This means that any results of a build that need to be preserved have to be saved before the build ends.
 In Jenkins this process is called "artifact archival".
 
@@ -61,7 +61,7 @@ pipeline {
 
 Declarative jobs automatically check out the repository containing the jobs ``Jenkinsfile``.
 
-If needed this can be prevented with the ``skipDefaultCheckout()`` build option. ``archiveArtifacts`` copies the given artifacts onto the main and associates them with the current build. When a build is deleted all associated artifacts are deleted too.
+If needed this can be prevented with the ``skipDefaultCheckout()`` build option. ``archiveArtifacts`` copies the given artifacts onto the controller and associates them with the current build. When a build is deleted all associated artifacts are deleted too.
 
 ``archiveArtifacts`` was introduced with Jenkins 2. It is more flexible than the ``archive`` step and provides additional options like ``exclude``.
 

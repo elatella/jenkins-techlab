@@ -9,7 +9,7 @@ In this lab you will learn how to use a container image to build a Ruby applicat
 
 ## Task {{% param sectionnumber %}}.1: Use Ruby Container
 
-We use a docker image as our agent. This is possible because we have a worker which is capable to run container images.
+We use a docker image as our agent. This is possible because we have a agent which is capable to run container images.
 
 Create a new branch named ``lab-15.1`` from branch ``lab-8.1`` and change the content of the ``Jenkinsfile`` to:
 

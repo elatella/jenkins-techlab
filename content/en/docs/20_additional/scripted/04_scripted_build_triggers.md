@@ -30,4 +30,4 @@ timestamps() {
 Changes in build triggers in scripted pipelines are only seen by Jenkins
 after the changed pipeline ran.
 
-**Note:** Verify on the Jenkins main, whether the new triggers are now visible in the configuration view.
+**Note:** Verify on the Jenkins controller, whether the new triggers are now visible in the configuration view.
