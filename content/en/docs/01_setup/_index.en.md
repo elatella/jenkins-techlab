@@ -27,7 +27,7 @@ The prepared docker-compose file defines following container to be started and c
 
 * Jenkins controller: jenkins
   * controller server holding configuration and state
-* Jenkins agent: jenkins_agent
+* Jenkins agent: jenkins_agent_docker
   * agent to execute jobs
 * Jenkins agent with Docker daemon: docker
   * agent to execute jobs running inside container
@@ -160,7 +160,7 @@ How to remove all infrastructure to start from scratch.
    docker volume ls
    ```
 
-   The listed volumes should not start with `local_env_`. If you find such volumes, delete it manually (example for local_env_jenkins_controller: `docker volume rm local_env_jenkins_controller`).
+   The listed volumes should not start with `local_env_`. If you find such volumes, delete it manually (example for local_env_jenkins_controller_home: `docker volume rm local_env_jenkins_controller_home`).
 
 1. Remove ssh key files:
 
